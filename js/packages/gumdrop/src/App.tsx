@@ -9,8 +9,8 @@ import './App.css';
 import { useColorMode } from './contexts';
 import { Header } from './components/Header/Header';
 import { Claim } from './components/Claim';
-import { Close } from './components/Close';
-import { Create } from './components/Create';
+// import { Close } from './components/Close';
+// import { Create } from './components/Create';
 
 const WHITESPACE = '\u00A0';
 
@@ -68,47 +68,47 @@ const About = () => {
     </Stack>
   );
 
-  const create = (
-    <Stack spacing={1}>
-      <Link to={`/gumdrop/create`}>CREATION</Link>
+  //   const create = (
+  //     <Stack spacing={1}>
+  //       <Link to={`/gumdrop/create`}>CREATION</Link>
 
-      <div>
-        Creation builds a whitelist of users that can claim either existing
-        fungible tokens or directly mint from a pre-sale candy-machine.
-      </div>
+  //       <div>
+  //         Creation builds a whitelist of users that can claim either existing
+  //         fungible tokens or directly mint from a pre-sale candy-machine.
+  //       </div>
 
-      <div>
-        Creators must choose a mint or a candy-machine config and UUID, an
-        off-chain notification method (based on the handles supplied below, e.g
-        email, discord, etc), and supply a list of recipients and balances with
-        the following JSON schema{WHITESPACE}
-        <HyperLink
-          href={`data:text/plain;charset=utf-8,${JSON.stringify(
-            require('./example.json'),
-          )}`}
-          download="example.json"
-          underline="none"
-        >
-          (Click here for an example)
-        </HyperLink>
-      </div>
+  //       <div>
+  //         Creators must choose a mint or a candy-machine config and UUID, an
+  //         off-chain notification method (based on the handles supplied below, e.g
+  //         email, discord, etc), and supply a list of recipients and balances with
+  //         the following JSON schema{WHITESPACE}
+  //         <HyperLink
+  //           href={`data:text/plain;charset=utf-8,${JSON.stringify(
+  //             require('./example.json'),
+  //           )}`}
+  //           download="example.json"
+  //           underline="none"
+  //         >
+  //           (Click here for an example)
+  //         </HyperLink>
+  //       </div>
 
-      <pre style={{ fontSize: 14 }}>{`
-[
-  {
-    "handle": "<DISTRIBUTION-SPECIFIC-HANDLE>"
-    "amount": <#-TOKENS-OR-CANDY-MINTS>
-  },
-  ...
-]`}</pre>
+  //       <pre style={{ fontSize: 14 }}>{`
+  // [
+  //   {
+  //     "handle": "<DISTRIBUTION-SPECIFIC-HANDLE>"
+  //     "amount": <#-TOKENS-OR-CANDY-MINTS>
+  //   },
+  //   ...
+  // ]`}</pre>
 
-      <div>
-        NB: When a candy-machine is supplied, update authority for the
-        candy-machine will be transferred to the Gumdrop state. This can be
-        reclaimed by closing the Gumdrop.
-      </div>
-    </Stack>
-  );
+  //       <div>
+  //         NB: When a candy-machine is supplied, update authority for the
+  //         candy-machine will be transferred to the Gumdrop state. This can be
+  //         reclaimed by closing the Gumdrop.
+  //       </div>
+  //     </Stack>
+  //   );
 
   const claim = (
     <Stack spacing={1}>
@@ -123,28 +123,28 @@ const About = () => {
     </Stack>
   );
 
-  const close = (
-    <Stack spacing={1}>
-      <Link to={`/gumdrop/close`}>CLOSING</Link>
+  // const close = (
+  //   <Stack spacing={1}>
+  //     <Link to={`/gumdrop/close`}>CLOSING</Link>
 
-      <div>
-        Closing the Gumdrop cleans up the on-chain state and allows creators to
-        recycle any lamports held for rent-exemption after the airdrop is
-        complete.
-      </div>
+  //     <div>
+  //       Closing the Gumdrop cleans up the on-chain state and allows creators to
+  //       recycle any lamports held for rent-exemption after the airdrop is
+  //       complete.
+  //     </div>
 
-      <div>
-        When closing a candy-machine-integrated distributor, update authority
-        will be transferred back to the wallet owner.
-      </div>
-    </Stack>
-  );
+  //     <div>
+  //       When closing a candy-machine-integrated distributor, update authority
+  //       will be transferred back to the wallet owner.
+  //     </div>
+  //   </Stack>
+  // );
 
   const steps = [
     { name: 'summary', inner: summary },
-    { name: 'create', inner: create },
+    // { name: 'create', inner: create },
     { name: 'claim', inner: claim },
-    { name: 'close', inner: close },
+    // { name: 'close', inner: close },
   ];
   return (
     <Stack alignContent="left" textAlign="left" spacing={2}>
@@ -219,9 +219,9 @@ function App() {
           >
             <Box height="40px" />
             <Switch>
-              <Route path="/gumdrop/create" component={Create} />
+              {/* <Route path="/gumdrop/create" component={Create} /> */}
               <Route path="/gumdrop/claim" component={Claim} />
-              <Route path="/gumdrop/close" component={Close} />
+              {/* <Route path="/gumdrop/close" component={Close} /> */}
               <Route path="/gumdrop/" component={About} />
             </Switch>
             <Box height="80px" />
